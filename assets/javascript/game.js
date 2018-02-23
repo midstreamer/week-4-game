@@ -20,12 +20,12 @@ $( document ).ready(function() {
 
  //sets up a random number between 1 and 12 for each of the crystals
 
-    function crystalNumber(){
+  
         var num1= 1 + Math.floor(Math.random()*11);
         var num2= 1 + Math.floor(Math.random()*11); 
         var num3= 1 + Math.floor(Math.random()*11); 
         var num4= 1 + Math.floor(Math.random()*11); 
-    }
+    
     
         //reset the game 
         function reset(){
@@ -52,7 +52,7 @@ $( document ).ready(function() {
             reset();
         }
     
-        $("#one").on("click", function crystalNumber(){
+        $("#one").on("click", function(){
             counter = counter + num1;
             $("#yourScore").text(counter);
             //set wins and losses conditions 
@@ -63,7 +63,7 @@ $( document ).ready(function() {
                 lost();
             }
         });
-        $("#two").on("click", function crystalNumber(){
+        $("#two").on("click", function(){
             counter = counter + num2;
             $("#yourScore").text(counter);
             //set wins and losses conditions 
@@ -74,7 +74,7 @@ $( document ).ready(function() {
                 lost();
             }
         });
-        $("#three").on("click", function crystalNumber(){
+        $("#three").on("click", function(){
             counter = counter + num3;
             $("#yourScore").text(counter);
             //set wins and losses conditions 
