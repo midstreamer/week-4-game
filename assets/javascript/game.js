@@ -12,7 +12,6 @@ $( document ).ready(function() {
         var counter = 0;
         var wins = 0;
         var losses = 0;
-        var totalScore = 0; 
     
         
         $("#wins").text(wins); //this returns the text wins for the element win in the html doc
@@ -53,47 +52,47 @@ $( document ).ready(function() {
             reset();
         }
     
-        $("#one").on("click", function(){
+        $("#one").on("click", function crystalNumber(){
             counter = counter + num1;
-            $("#yourScore").text("#totalScore");
+            $("#yourScore").text(counter);
             //set wins and losses conditions 
-            if (totalScore == Random){
+            if (counter == Random){
                 won();
             }
-            else if (totalScore > Random){
+            else if (counter > Random){
                 lost();
             }
         });
         $("#two").on("click", function crystalNumber(){
             counter = counter + num2;
-            $("#yourScore").text("#totalScore");
+            $("#yourScore").text(counter);
             //set wins and losses conditions 
-            if (totalScore == Random){
+            if (counter == Random){
                 won();
             }
-            else if (totalScore > Random){
+            else if (counter > Random){
                 lost();
             }
         });
         $("#three").on("click", function crystalNumber(){
             counter = counter + num3;
-            $("#yourScore").text(totalScore);
+            $("#yourScore").text(counter);
             //set wins and losses conditions 
-            if (totalScore == Random){
+            if (counter == Random){
                 won();
             }
-            else if (totalScore > Random){
+            else if (counter > Random){
                 lost();
             }
         });
         $("#four").on("click", function(){
             counter = counter + num4;
-            $("#yourScore").text(totalScore);
+            $("#yourScore").text(counter);
             //set wins and losses conditions 
-            if (totalScore == Random){
+            if (counter == Random){
                 won();
             }
-            else if (totalScore > Random){
+            else if (counter > Random){
                 lost();
             }
         });
