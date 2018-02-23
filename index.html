@@ -2,71 +2,68 @@
 <html lang="en">
 
 <head>
-    
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+    <meta charset="UTP-8">
     <title>Crystal Collector Game</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    
+    <!--Add link to JQuery Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div id="wrapper"></div>
 
-    <h1>Crystal Collector Game!</h1>
+    <!--create a div to hold the title of the game -->
+       
+        <h1><span>Crystal Collector Game!</span></h1>
 
-    <!--creates a div to hold the instructions for the game-->
-
-    <div id="instructions">
-        <p>You will be given a random number at the start of the game.</p>
-        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to yur total score.</p>
-        <p>You win the game by matching your total score to the random number. You lose the game if your total score goes over
+    <!--create a div to hold the instructions for the game-->    
+        <div id="instructions">  
+            <p>You will be given a random number at the start of the game.</p>
+            <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to yur total score.</p>
+            <p>You win the game by matching your total score to the random number. You lose the game if your total score goes over
             the random number.</p>
-        <p>Each time the game starts, the game will change the values of each crystal.</p>
-    </div>
-
-    <!--creates a div to hold the random number that the player will guess by chosing a crystal-->
-
-    <div class="container">
-        <div id="guessingNumber">
-            <h2>Number to Guess:
-                <span class="value"></span>
-            </h2>
+            <p>Each time the game starts, the game will change the values of each crystal.</p>
         </div>
 
-        <!--creates a div to hold the scoreboard for the game. It will display the status, wins, and loses-->
+    <!--create a div to hold the random number that the player will guess by chosing a crystal and the scoreboard showing the wins and losses--> 
+        <div class="container"> 
 
-        <div id="scoreboard">
-            <h3>
-                <span id="status"></span>
-            </h3>
-            <h3>Wins:
-                <span id="win"></span>
-            </h3>
-            <h3>Losses:
-                <span id="loss"></span>
-            </h3>
+            <div id="guessingNumber">
+                <h2>Number to Guess:<span id="number-to-guess"></span></h2>
+            </div>
+
+    <!--create a div to hold the scoreboard for the game -->          
+            <div id="scoreboard">  
+                <h3>Wins:<span id="wins">0</span></h3>
+                <h3>Losses:<span id="losses">0</span></h3>
+            </div>
         </div>
+
+      <!--create a div to hold the buttons with images of the crystals so the player can pick a crystals and get a random number-->  
+     <div id="crystals">
+            <button id="one"></button>
+            <button id="two"></button>
+		    <button id="three"></button>
+		    <button id="four"></button>
     </div>
 
-    <!--creates a div to hold the images of the crystals-->
+    <!--create a div to hold the players total score that will be compared against the random number that the player will be trying
+                to guess-->      
+            <div id="totalScore">  
 
-    <div id="crystals"></div>
+                <h2 id="yourTotalScore">Your Total Score is:
+                <span id="yourScore"></span>
+                </h2>
 
-    <!--creates a div to hold the players totla score that will be compared against the random number that the player will be trying
-    to guess-->
-
-    <div id="totalScore"></div>
-
-    <h2 id="yourTotalScore">Your Total Score is:
-        <span id="yourScore">0</span>
-    </h2>
-
-    </div>
+            </div>
     </div>
 
-    <!--add link to jquery and javascript files-->
+    <!--add link to javascript files-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./assets/javascript/game.js" alt="Javascript"></script>
+    <script src="./assets/javascript/game.js"></script>
+    
+   
 
 </body>
 

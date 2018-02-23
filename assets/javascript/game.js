@@ -1,80 +1,111 @@
-$(document).ready(function() {
+$( document ).ready(function() {
+    
 
-    //define the string crystals with the images that will represent them.
 
-    crystals = ["./assets/images/red.png","./assets/images/blue.png","./assets/images/green.png","./assets/images/yellow.png"];
-
-    //define variables that will hold the counter, wins, and losses for the game.
-
-    var counter = 0;
-    var wins = 0;
-    var losses = 0;
-
-    $("#win").text(wins); //this returns the text wins for the element win in the html doc>
-    $("#loss").text(losses); //this returns the text losses for the element loss in the html doc
-
-    newCrystals(); 
-    newGame();
-
-    function newCrystals () {
-        var numbers = [] 
-            while(numbers.length < 4){
-                var randomnumber = Math.ceil(Math.random()*12)
-                var found = false;
-                for (var i=0; i < numbers.length; i++){
-                    if (numbers[i] == randomnumber){
-                        found = true; break
-
-                }
-            }
-            if(!found)numbers[numbers.length]=randomnumber;
-        }
-        console.log(numbers);
-
-        for (i = 0; i < numbers.length; i++) {
-                var imageCrystal = $("<img>");
-                imageCrystal.attr("data-num", number[i]);
-                imageCrystal.attr("src", crystals[i]);
-                imageCrystal.attr("alt", "crystals");
-                imageCrystal.addClass("crystalImage")
-                $("#crystals").append(imageCrystals);
-        }
+    function newRandomNumber() {
+       var Random = 19 + Math.floor(Math.random()*120); // This selects a random number between 19 and 120 to be displayed at the begin of the game. 
+       $("#number-to-guess").text(Random);
+       console.log(Random);
     }
-
-    function newGame() {
-        counter = 0;
-        $("yourscore").text(counter); //this replaces the content from the counter in the yourscore element in the html document.
-
-        function randomIntFromInterval(min,max){
-            return Math.floor(Math.random()*(max-min+1)+min);
-        }
-
-        var numberToGuess = randomIntFromInterval(19,120); //this define the min of 19 and a maxium of 120 for the random number to be generated from the randomIntFromInterval function above.
+    
+    newRandomNumber();
+        var counter = 0;
+        var wins = 0;
+        var losses = 0; 
+    
+        //defines variables that will hold the counter, wins, and losses for the game.
+    function crystalNumber(){
+        var num1= Math.floor((Math.random()*11)+1);
+        var num2= Math.floor((Math.random()*11)+1); 
+        var num3= Math.floor((Math.random()*11)+1); 
+        var num4= Math.floor((Math.random()*11)+1); 
+    }
+    
+        //sets up a random number between 1 and 12 for each of the crystals
+    
+    
+        $("#win").text(wins); //this returns the text wins for the element win in the html doc
+        $("#loss").text(losses); //this returns the text losses for the element loss in the html doc
         
-        $(".value").text(numberToGuess);
-
-        $(".crystalImage").on("click", function(){
-            counter = counter + parseInt($(this).data("num"));
-
+        //reset the game 
+        function reset(){
+            Random=Math.floor(Math.random()*101+19);
+             num1= Math.floor((Math.random()*11)+1);
+             num2= Math.floor((Math.random()*11)+1); 
+             num3= Math.floor((Math.random()*11)+1); 
+             num4= Math.floor((Math.random()*11)+1);
+            counter = 0;
             $("#yourscore").text(counter);
-
-            if (counter == numberToGuess){
-                $("status").text("You Won");
-                wins ++;
-                $("win").text(wins);
-                console.log(wins)
-                $("#crystals").empty();
-                newCrystals();
-                newGame();
-            } else if (counter > numberToGuess){
-                $("#status").text("You lose")
-                losses ++;
-                $("loss").text(losses);
-                console.log(losses)
-                $("#crystals").empty();
-                newCrystal();
-                newGame();
+        }
+    
+        function won(){
+            alert("You won!");
+            wins++;
+            ("#win").text(wins);
+            reset();
+        }
+    
+        function lost(){
+            alert("You Lost");
+            losses++;
+            ("#losses").text(losses);
+            reset();
+        }
+    
+        $("#one").on("click", function crystalNumber(){
+            counter = counter + num1;
+            $("#yourscore").text("#totalScore");
+            //set wins and losses conditions 
+            if (totalScore == Random){
+                won();
+            }
+            else if (totalScore > Random){
+                lost();
             }
         });
-    }
-});
+        $("#two").on("click", function crystalNumber(){
+            counter = counter + num2;
+            $("#yourscore").text("#totalScore");
+            //set wins and losses conditions 
+            if (totalScore == Random){
+                won();
+            }
+            else if (totalScore > Random){
+                lost();
+            }
+        });
+        $("#three").on("click", function crystalNumber(){
+            counter = counter + num3;
+            $("#yourscore").text(totalScore);
+            //set wins and losses conditions 
+            if (totalScore == Random){
+                won();
+            }
+            else if (totalScore > Random){
+                lost();
+            }
+        });
+        $("#four").on("click", function(){
+            counter = counter + num4;
+            $("#yourscore").text(totalScore);
+            //set wins and losses conditions 
+            if (totalScore == Random){
+                won();
+            }
+            else if (totalScore > Random){
+                lost();
+            }
+        });
+
+    });
+    
+
+    
+    
+    
+    
+    
+    
+    
+       
+
