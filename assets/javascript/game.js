@@ -3,7 +3,7 @@ $( document ).ready(function() {
 
 
     function newRandomNumber() {
-       var Random = 19 + Math.floor(Math.random()*120); // This selects a random number between 19 and 120 to be displayed at the begin of the game. 
+       var Random = Math.floor(Math.random()*120) + 1; // This selects a random number between 19 and 120 to be displayed at the begin of the game. 
        $("#number-to-guess").text(Random);
        console.log(Random);
     }
@@ -29,7 +29,7 @@ $( document ).ready(function() {
     
         //reset the game 
         function reset(){
-            Random = 19 + Math.floor(Math.random()*120);
+            Random = Math.floor(Math.random()*120) + 1;
              num1= 1 + Math.floor(Math.random()*11);
              num2= 1 + Math.floor(Math.random()*11);
              num3= 1 + Math.floor(Math.random()*11); 
@@ -42,31 +42,29 @@ $( document ).ready(function() {
             alert("You won!");
             wins++;
             ("#wins").text(wins);
-            reset();
+            $reset();
         }
     
         function lost(){
             alert("You Lost");
             losses++;
             ("#losses").text(losses);
-            reset();
+            $reset();
         }
     
         $("#one").on("click", function(){
             counter = counter + num1;
             $("#yourScore").text(counter);
-            //set wins and losses conditions 
             if (counter == Random){
-                won();
+                $won();
             }
             else if (counter > Random){
-                lost();
+                $lost();
             }
         });
         $("#two").on("click", function(){
             counter = counter + num2;
             $("#yourScore").text(counter);
-            //set wins and losses conditions 
             if (counter == Random){
                 won();
             }
@@ -77,7 +75,6 @@ $( document ).ready(function() {
         $("#three").on("click", function(){
             counter = counter + num3;
             $("#yourScore").text(counter);
-            //set wins and losses conditions 
             if (counter == Random){
                 won();
             }
@@ -87,8 +84,7 @@ $( document ).ready(function() {
         });
         $("#four").on("click", function(){
             counter = counter + num4;
-            $("#yourScore").text(counter);
-            //set wins and losses conditions 
+            $("#yourScore").text(counter); 
             if (counter == Random){
                 won();
             }
