@@ -21,19 +21,19 @@ $( document ).ready(function() {
  //sets up a random number between 1 and 12 for each of the crystals
 
   
-        var num1= 1 + Math.floor(Math.random()*11);
-        var num2= 1 + Math.floor(Math.random()*11); 
-        var num3= 1 + Math.floor(Math.random()*11); 
-        var num4= 1 + Math.floor(Math.random()*11); 
+        var num1= 1 + Math.floor(Math.random()*12);
+        var num2= 1 + Math.floor(Math.random()*12); 
+        var num3= 1 + Math.floor(Math.random()*12); 
+        var num4= 1 + Math.floor(Math.random()*12); 
     
     
         //reset the game 
         function reset(){
             Random = Math.floor(Math.random()*120) + 1;
-             num1= 1 + Math.floor(Math.random()*11);
-             num2= 1 + Math.floor(Math.random()*11);
-             num3= 1 + Math.floor(Math.random()*11); 
-             num4= 1 + Math.floor(Math.random()*11);
+             num1= 1 + Math.floor(Math.random()*12);
+             num2= 1 + Math.floor(Math.random()*12);
+             num3= 1 + Math.floor(Math.random()*12); 
+             num4= 1 + Math.floor(Math.random()*12);
              counter = 0;
             $("#yourScore").text(counter);
         }
@@ -42,24 +42,24 @@ $( document ).ready(function() {
             alert("You won!");
             wins++;
             ("#wins").text(wins);
-            $reset();
+            reset();
         }
     
         function lost(){
             alert("You Lost");
             losses++;
             ("#losses").text(losses);
-            $reset();
+            reset();
         }
     
         $("#one").on("click", function(){
             counter = counter + num1;
             $("#yourScore").text(counter);
             if (counter == Random){
-                $won();
+                won();
             }
             else if (counter > Random){
-                $lost();
+                lost();
             }
         });
         $("#two").on("click", function(){
