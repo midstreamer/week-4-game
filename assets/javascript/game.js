@@ -11,37 +11,38 @@ $( document ).ready(function() {
     newRandomNumber();
         var counter = 0;
         var wins = 0;
-        var losses = 0; 
+        var losses = 0;
+        var totalScore = 0; 
     
-        //defines variables that will hold the counter, wins, and losses for the game.
+        
+        $("#wins").text(wins); //this returns the text wins for the element win in the html doc
+        $("#losses").text(losses); //this returns the text losses for the element loss in the html doc
+        $("#yourScore").text(counter);
+
+ //sets up a random number between 1 and 12 for each of the crystals
+
     function crystalNumber(){
-        var num1= Math.floor((Math.random()*11)+1);
-        var num2= Math.floor((Math.random()*11)+1); 
-        var num3= Math.floor((Math.random()*11)+1); 
-        var num4= Math.floor((Math.random()*11)+1); 
+        var num1= 1 + Math.floor(Math.random()*11);
+        var num2= 1 + Math.floor(Math.random()*11); 
+        var num3= 1 + Math.floor(Math.random()*11); 
+        var num4= 1 + Math.floor(Math.random()*11); 
     }
     
-        //sets up a random number between 1 and 12 for each of the crystals
-    
-    
-        $("#win").text(wins); //this returns the text wins for the element win in the html doc
-        $("#loss").text(losses); //this returns the text losses for the element loss in the html doc
-        
         //reset the game 
         function reset(){
-            Random=Math.floor(Math.random()*101+19);
-             num1= Math.floor((Math.random()*11)+1);
-             num2= Math.floor((Math.random()*11)+1); 
-             num3= Math.floor((Math.random()*11)+1); 
-             num4= Math.floor((Math.random()*11)+1);
-            counter = 0;
-            $("#yourscore").text(counter);
+            Random = 19 + Math.floor(Math.random()*120);
+             num1= 1 + Math.floor(Math.random()*11);
+             num2= 1 + Math.floor(Math.random()*11);
+             num3= 1 + Math.floor(Math.random()*11); 
+             num4= 1 + Math.floor(Math.random()*11);
+             counter = 0;
+            $("#yourScore").text(counter);
         }
     
         function won(){
             alert("You won!");
             wins++;
-            ("#win").text(wins);
+            ("#wins").text(wins);
             reset();
         }
     
@@ -52,9 +53,9 @@ $( document ).ready(function() {
             reset();
         }
     
-        $("#one").on("click", function crystalNumber(){
+        $("#one").on("click", function(){
             counter = counter + num1;
-            $("#yourscore").text("#totalScore");
+            $("#yourScore").text("#totalScore");
             //set wins and losses conditions 
             if (totalScore == Random){
                 won();
@@ -65,7 +66,7 @@ $( document ).ready(function() {
         });
         $("#two").on("click", function crystalNumber(){
             counter = counter + num2;
-            $("#yourscore").text("#totalScore");
+            $("#yourScore").text("#totalScore");
             //set wins and losses conditions 
             if (totalScore == Random){
                 won();
@@ -76,7 +77,7 @@ $( document ).ready(function() {
         });
         $("#three").on("click", function crystalNumber(){
             counter = counter + num3;
-            $("#yourscore").text(totalScore);
+            $("#yourScore").text(totalScore);
             //set wins and losses conditions 
             if (totalScore == Random){
                 won();
@@ -87,7 +88,7 @@ $( document ).ready(function() {
         });
         $("#four").on("click", function(){
             counter = counter + num4;
-            $("#yourscore").text(totalScore);
+            $("#yourScore").text(totalScore);
             //set wins and losses conditions 
             if (totalScore == Random){
                 won();
