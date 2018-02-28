@@ -1,9 +1,9 @@
 $( document ).ready(function() {
     
 
-
+    var Random = Math.floor(Math.random()*120) + 1;
     function newRandomNumber() {
-       var Random = Math.floor(Math.random()*120) + 1; // This selects a random number between 19 and 120 to be displayed at the begin of the game. 
+       Random = Math.floor(Math.random()*120) + 1; // This selects a random number between 19 and 120 to be displayed at the begin of the game. 
        $("#number-to-guess").text(Random);
        console.log(Random);
     }
